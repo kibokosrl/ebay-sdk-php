@@ -17,6 +17,11 @@ class TradingBaseService extends \DTS\eBaySDK\Services\BaseService
     const HDR_APP_ID = 'X-EBAY-API-APP-NAME';
 
     /**
+     * HTTP header constant. The OAUTH Authentication Token that is used to validate the caller has permission to access the eBay servers.
+     */
+    const HDR_AUTHORIZATION = 'X-EBAY-API-IAF-TOKEN';
+
+    /**
      * HTTP header constant. Your certificate ID.
      */
     const HDR_CERT_ID = 'X-EBAY-API-CERT-NAME';
@@ -59,6 +64,9 @@ class TradingBaseService extends \DTS\eBaySDK\Services\BaseService
                 'default' => \DTS\eBaySDK\Trading\Services\TradingService::API_VERSION,
                 'required' => true
             ],
+            'authorization' => [
+                'valid' => ['string']
+            ],
             'authToken' => [
                 'valid' => ['string']
             ],
@@ -86,7 +94,14 @@ class TradingBaseService extends \DTS\eBaySDK\Services\BaseService
         /**
          * Modify the request object to include the auth token that was set up in the configuration.
          */
-        if ($this->getConfig('authToken') !== null) {
+        if ($this->getConfig('authorization') !== null) {
+            /**
+             * Don't send requester credentials if oauth authentication needed.
+             */
+            if (isset($request->RequesterCredentials)) {
+                unset($request->RequesterCredentials);
+            }
+        } elseif ($this->getConfig('authToken') !== null) {
             /**
              * Don't modify a request if the token already exists.
              */
@@ -124,15 +139,19 @@ class TradingBaseService extends \DTS\eBaySDK\Services\BaseService
 
         // Add optional headers.
         if ($appId) {
-            $headers[self::HDR_APP_ID] = $credentials->getAppId();
+            $headers[self::HDR_APP_ID] = $appId;
         }
 
         if ($certId) {
-            $headers[self::HDR_CERT_ID] = $credentials->getCertId();
+            $headers[self::HDR_CERT_ID] = $certId;
         }
 
         if ($devId) {
-            $headers[self::HDR_DEV_ID] = $credentials->getDevId();
+            $headers[self::HDR_DEV_ID] = $devId;
+        }
+
+        if ($this->getConfig('authorization')) {
+            $headers[self::HDR_AUTHORIZATION] = $this->getConfig('authorization');
         }
 
         return $headers;

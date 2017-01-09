@@ -27,6 +27,7 @@
 * Support Related Items Management API version 1.0.0.
 * Configuration option httpOptions now supports http_errors.
 * Configuration option httpOptions now supports curl.
+* Oauth Token can be used with the Trading service.
 
 ## 7.0.0 - 2016-09-03
 
