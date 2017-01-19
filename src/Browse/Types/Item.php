@@ -28,6 +28,7 @@ namespace DTS\eBaySDK\Browse\Types;
  * @property string $itemEndDate
  * @property string $itemId
  * @property \DTS\eBaySDK\Browse\Types\Address $itemLocation
+ * @property string $itemWebUrl
  * @property \DTS\eBaySDK\Browse\Types\TypedNameValue[] $localizedAspects
  * @property \DTS\eBaySDK\Browse\Types\MarketingPrice $marketingPrice
  * @property string $material
@@ -172,6 +173,12 @@ class Item extends \DTS\eBaySDK\Types\BaseType
             'repeatable' => false,
             'attribute' => false,
             'elementName' => 'itemLocation'
+        ],
+        'itemWebUrl' => [
+            'type' => 'string',
+            'repeatable' => false,
+            'attribute' => false,
+            'elementName' => 'itemWebUrl'
         ],
         'localizedAspects' => [
             'type' => 'DTS\eBaySDK\Browse\Types\TypedNameValue',

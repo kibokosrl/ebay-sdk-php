@@ -12,7 +12,6 @@ use DTS\eBaySDK\HttpHeadersTrait;
 
 /**
  *
- * @property \DTS\eBaySDK\Account\Types\Error[] $error
  * @property \DTS\eBaySDK\Account\Types\ErrorDetailV3[] $errors
  * @property \DTS\eBaySDK\Account\Types\ErrorDetailV3[] $warnings
  */
@@ -25,12 +24,6 @@ class OptOutOfProgramRestResponse extends \DTS\eBaySDK\Types\BaseType
      * @var array Properties belonging to objects of this class.
      */
     private static $propertyTypes = [
-        'error' => [
-            'type' => 'DTS\eBaySDK\Account\Types\Error',
-            'repeatable' => true,
-            'attribute' => false,
-            'elementName' => 'error'
-        ],
         'errors' => [
             'type' => 'DTS\eBaySDK\Account\Types\ErrorDetailV3',
             'repeatable' => true,

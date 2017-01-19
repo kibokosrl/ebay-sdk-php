@@ -22,6 +22,7 @@ namespace DTS\eBaySDK\Browse\Types;
  * @property string $itemGroupHref
  * @property string $itemId
  * @property \DTS\eBaySDK\Browse\Types\ItemLocationImpl $itemLocation
+ * @property string $itemWebUrl
  * @property \DTS\eBaySDK\Browse\Types\MarketingPrice_0 $marketingPrice
  * @property \DTS\eBaySDK\Browse\Types\PickupOptionSummary[] $pickupOptions
  * @property \DTS\eBaySDK\Browse\Types\Amount_0 $price
@@ -114,6 +115,12 @@ class ItemSummary extends \DTS\eBaySDK\Types\BaseType
             'repeatable' => false,
             'attribute' => false,
             'elementName' => 'itemLocation'
+        ],
+        'itemWebUrl' => [
+            'type' => 'string',
+            'repeatable' => false,
+            'attribute' => false,
+            'elementName' => 'itemWebUrl'
         ],
         'marketingPrice' => [
             'type' => 'DTS\eBaySDK\Browse\Types\MarketingPrice_0',

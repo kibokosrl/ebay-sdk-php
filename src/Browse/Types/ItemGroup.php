@@ -12,12 +12,10 @@ namespace DTS\eBaySDK\Browse\Types;
  * @property \DTS\eBaySDK\Browse\Types\Image[] $additionalImages
  * @property string $categoryPath
  * @property string $description
- * @property string $generatedShortDescription
  * @property \DTS\eBaySDK\Browse\Types\Image $image
  * @property string $itemGroupId
  * @property \DTS\eBaySDK\Browse\Types\ItemDigest[] $items
  * @property \DTS\eBaySDK\Browse\Types\ReviewRating $reviewRating
- * @property string $sellerProvidedDescription
  * @property string $shortDescription
  * @property string $title
  * @property \DTS\eBaySDK\Browse\Types\TypedNameValue[] $variesByLocalizedAspects
@@ -47,12 +45,6 @@ class ItemGroup extends \DTS\eBaySDK\Types\BaseType
             'attribute' => false,
             'elementName' => 'description'
         ],
-        'generatedShortDescription' => [
-            'type' => 'string',
-            'repeatable' => false,
-            'attribute' => false,
-            'elementName' => 'generatedShortDescription'
-        ],
         'image' => [
             'type' => 'DTS\eBaySDK\Browse\Types\Image',
             'repeatable' => false,
@@ -76,12 +68,6 @@ class ItemGroup extends \DTS\eBaySDK\Types\BaseType
             'repeatable' => false,
             'attribute' => false,
             'elementName' => 'reviewRating'
-        ],
-        'sellerProvidedDescription' => [
-            'type' => 'string',
-            'repeatable' => false,
-            'attribute' => false,
-            'elementName' => 'sellerProvidedDescription'
         ],
         'shortDescription' => [
             'type' => 'string',
