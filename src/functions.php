@@ -87,7 +87,7 @@ function applyCredentials($value, array &$configuration)
         } else {
             $configuration['credentials'] = $c;
         }
-    } else if ($value instanceof CredentialsInterface) {
+    } elseif ($value instanceof CredentialsInterface) {
         return;
     } elseif (is_array($value)
         && isset($value['appId'])

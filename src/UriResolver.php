@@ -150,9 +150,9 @@ class UriResolver
         foreach ($paramValues as $param => $value) {
             if (is_array($value)) {
                 $value = join(',', $value);
-            } else if (is_bool($value)) {
+            } elseif (is_bool($value)) {
                 $value = $value ? 'true' : 'false';
-            } else if (is_callable($value)) {
+            } elseif (is_callable($value)) {
                 $value = $value();
             }
             $query[] = $param.'='.urlencode($value);

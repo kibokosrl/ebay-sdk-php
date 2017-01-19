@@ -587,7 +587,7 @@ class BaseType implements JmesPathableObjectInterface
     {
         if ($value instanceof \DateTime) {
             return $value->format('Y-m-d\TH:i:s.000\Z');
-        } else if (is_bool($value)) {
+        } elseif (is_bool($value)) {
             return $value ? 'true' : 'false';
         } else {
             return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', true);
@@ -605,7 +605,7 @@ class BaseType implements JmesPathableObjectInterface
     {
         if (is_subclass_of($value, '\DTS\eBaySDK\Types\BaseType', false)) {
             return $value->toArray();
-        } else if ($value instanceof \DateTime) {
+        } elseif ($value instanceof \DateTime) {
             return $value->format('Y-m-d\TH:i:s.000\Z');
         } else {
             return $value;
