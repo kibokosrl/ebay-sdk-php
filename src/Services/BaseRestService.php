@@ -112,16 +112,6 @@ abstract class BaseRestService
     }
 
     /**
-     * Helper method to return the value of the credentials configuration option.
-     *
-     * @return \DTS\eBaySDK\Credentials\CredentialsInterface
-     */
-    public function getCredentials()
-    {
-        return $this->getConfig('credentials');
-    }
-
-    /**
      * Sends an asynchronous API request.
      *
      * @param string $name The name of the operation.
