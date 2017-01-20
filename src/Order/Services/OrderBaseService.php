@@ -52,6 +52,10 @@ class OrderBaseService extends \DTS\eBaySDK\Services\BaseRestService
                 'default' => \DTS\eBaySDK\Order\Services\OrderService::API_VERSION,
                 'required' => true
             ],
+            'authorization' => [
+                'valid' => ['string'],
+                'required' => true
+            ],
             'marketplaceId' => [
                 'valid' => ['string']
             ],

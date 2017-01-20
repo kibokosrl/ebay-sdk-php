@@ -47,6 +47,10 @@ class AnalyticsBaseService extends \DTS\eBaySDK\Services\BaseRestService
                 'default' => \DTS\eBaySDK\Analytics\Services\AnalyticsService::API_VERSION,
                 'required' => true
             ],
+            'authorization' => [
+                'valid' => ['string'],
+                'required' => true
+            ],
             'marketplaceId' => [
                 'valid' => ['string']
             ]

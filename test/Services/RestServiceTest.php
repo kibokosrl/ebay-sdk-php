@@ -12,12 +12,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     {
         $d = BaseRestService::getConfigDefinitions();
 
-        $this->assertArrayHasKey('authorization', $d);
-        $this->assertEquals([
-            'valid'   => ['string'],
-            'required' => true
-        ], $d['authorization']);
-
         $this->assertArrayHasKey('debug', $d);
         $this->assertEquals([
             'valid'   => ['bool', 'array'],
@@ -59,7 +53,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
         // By default sandbox will be false.
         $h = new HttpRestHandler();
         $s = new RestService([
-            'authorization' => 'xxx',
             'httpHandler'   => $h
         ]);
         $s->foo(new ComplexClass());
@@ -71,7 +64,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     {
         $h = new HttpRestHandler();
         $s = new RestService([
-            'authorization' => 'xxx',
             'sandbox' => true,
             'httpHandler'   => $h
         ]);
@@ -84,7 +76,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     {
         $h = new HttpRestHandler();
         $s = new RestService([
-            'authorization' => 'xxx',
             'requestLanguage' => 'en-GB',
             'responseLanguage' => 'en-US',
             'sandbox' => true,
@@ -108,7 +99,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     {
         $h = new HttpRestHandler();
         $s = new RestService([
-            'authorization' => 'xxx',
             'httpHandler'   => $h
         ]);
         $r = new ComplexClass();
@@ -122,7 +112,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     {
         $h = new HttpRestHandler();
         $s = new RestService([
-            'authorization' => 'xxx',
             'httpHandler'   => $h
         ]);
         $s->foo(new ComplexClass());
@@ -133,7 +122,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     public function testResponseIsReturned()
     {
         $s = new RestService([
-            'authorization' => 'xxx',
             'httpHandler'   => new HttpRestHandler()
         ]);
         $r = $s->foo(new ComplexClass());
@@ -149,7 +137,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
         };
 
         $s = new RestService([
-            'authorization' => 'xxx',
             'debug' => ['logfn' => $logfn],
             'httpHandler'   => new HttpRestHandler()
         ]);
@@ -167,14 +154,12 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     {
         $h = new HttpRestHandler();
         $s = new RestService([
-            'authorization' => 'xxx',
             'sandbox' => true,
             'httpHandler' => $h,
             'httpOptions' => []
         ]);
 
         $this->assertEquals([
-            'authorization' => 'xxx',
             'apiVersion' => 'v1',
             'sandbox' => true,
             'debug' => false,
@@ -187,7 +172,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
         ]);
 
         $this->assertEquals([
-            'authorization' => 'xxx',
             'apiVersion' => 'v1',
             'sandbox' => false,
             'debug' => false,
@@ -203,7 +187,6 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
     public function testSetConfigWillThrow()
     {
         $s = new RestService([
-            'authorization' => 'xxx',
             'x'=> 1
         ]);
 

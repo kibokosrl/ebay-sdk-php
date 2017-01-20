@@ -17,7 +17,7 @@ class PostOrderBaseService extends \DTS\eBaySDK\Services\BaseRestService
     /**
      * HTTP header constant. The Authentication Token that is used to validate the caller has permission to access the eBay servers.
      */
-    const HDR_AUTHORIZATION = 'Authorization';
+    const HDR_AUTH_TOKEN = 'Authorization';
 
     /**
      * HTTP header constant. The global ID of the eBay site on which the transaction took place.
@@ -47,6 +47,10 @@ class PostOrderBaseService extends \DTS\eBaySDK\Services\BaseRestService
                 'default' => \DTS\eBaySDK\PostOrder\Services\PostOrderService::API_VERSION,
                 'required' => true
             ],
+            'authToken' => [
+                'valid' => ['string'],
+                'required' => true
+            ],
             'marketplaceId' => [
                 'valid' => ['string']
             ]
@@ -63,7 +67,7 @@ class PostOrderBaseService extends \DTS\eBaySDK\Services\BaseRestService
         $headers = [];
 
         // Add required headers first.
-        $headers[self::HDR_AUTHORIZATION] = 'TOKEN '.$this->getConfig('authorization');
+        $headers[self::HDR_AUTH_TOKEN] = 'TOKEN '.$this->getConfig('authToken');
 
         // Add optional headers.
         if ($this->getConfig('marketplaceId')) {

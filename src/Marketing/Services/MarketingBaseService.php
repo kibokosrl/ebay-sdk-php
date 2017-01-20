@@ -47,6 +47,10 @@ class MarketingBaseService extends \DTS\eBaySDK\Services\BaseRestService
                 'default' => \DTS\eBaySDK\Marketing\Services\MarketingService::API_VERSION,
                 'required' => true
             ],
+            'authorization' => [
+                'valid' => ['string'],
+                'required' => true
+            ],
             'marketplaceId' => [
                 'valid' => ['string']
             ]

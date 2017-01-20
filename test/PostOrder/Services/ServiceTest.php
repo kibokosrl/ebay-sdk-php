@@ -19,6 +19,12 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
             'required' => true
         ], $d['apiVersion']);
 
+        $this->assertArrayHasKey('authToken', $d);
+        $this->assertEquals([
+            'valid' => ['string'],
+            'required' => true
+        ], $d['authToken']);
+
         $this->assertArrayHasKey('marketplaceId', $d);
         $this->assertEquals([
             'valid' => ['string']
@@ -30,15 +36,15 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
         $h = new HttpRestHandler();
 
         $s = new Service([
-            'authorization' => '321',
+            'authToken' => '321',
             'httpHandler' => $h
         ]);
 
         $s->testOperation();
 
         // Test required headers first.
-        $this->assertArrayHasKey(PostOrderBaseService::HDR_AUTHORIZATION, $h->headers);
-        $this->assertEquals('TOKEN 321', $h->headers[PostOrderBaseService::HDR_AUTHORIZATION ]);
+        $this->assertArrayHasKey(PostOrderBaseService::HDR_AUTH_TOKEN, $h->headers);
+        $this->assertEquals('TOKEN 321', $h->headers[PostOrderBaseService::HDR_AUTH_TOKEN ]);
 
         // Test that optional headers have not been set until they have been configured.
         $this->assertArrayNotHasKey(PostOrderBaseService::HDR_MARKETPLACE_ID, $h->headers);
@@ -49,7 +55,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
         $h = new HttpRestHandler();
 
         $s = new Service([
-            'authorization' => '321',
+            'authToken' => '321',
             'marketplaceId' => '123',
             'httpHandler' => $h
         ]);

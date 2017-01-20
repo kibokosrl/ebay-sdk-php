@@ -19,6 +19,12 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
             'required' => true
         ], $d['apiVersion']);
 
+        $this->assertArrayHasKey('authorization', $d);
+        $this->assertEquals([
+            'valid'   => ['string'],
+            'required' => true
+        ], $d['authorization']);
+
         $this->assertArrayHasKey('marketplaceId', $d);
         $this->assertEquals([
             'valid' => ['string']
@@ -38,7 +44,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
 
         // Test required headers first.
         $this->assertArrayHasKey(FulfillmentBaseService::HDR_AUTHORIZATION, $h->headers);
-        $this->assertEquals('Bearer 321', $h->headers[FulfillmentBaseService::HDR_AUTHORIZATION ]);
+        $this->assertEquals('Bearer 321', $h->headers[FulfillmentBaseService::HDR_AUTHORIZATION]);
 
         // Test that optional headers have not been set until they have been configured.
         $this->assertArrayNotHasKey(FulfillmentBaseService::HDR_MARKETPLACE_ID, $h->headers);

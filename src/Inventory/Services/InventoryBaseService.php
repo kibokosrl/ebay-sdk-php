@@ -47,6 +47,10 @@ class InventoryBaseService extends \DTS\eBaySDK\Services\BaseRestService
                 'default' => \DTS\eBaySDK\Inventory\Services\InventoryService::API_VERSION,
                 'required' => true
             ],
+            'authorization' => [
+                'valid' => ['string'],
+                'required' => true
+            ],
             'marketplaceId' => [
                 'valid' => ['string']
             ]

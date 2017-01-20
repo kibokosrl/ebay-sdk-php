@@ -55,10 +55,6 @@ abstract class BaseRestService
     public static function getConfigDefinitions()
     {
         return [
-            'authorization' => [
-                'valid' => ['string'],
-                'required' => true
-            ],
             'debug' => [
                 'valid'   => ['bool', 'array'],
                 'fn'      => 'DTS\eBaySDK\applyDebug',

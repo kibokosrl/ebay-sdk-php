@@ -47,6 +47,10 @@ class MetadataBaseService extends \DTS\eBaySDK\Services\BaseRestService
                 'default' => \DTS\eBaySDK\Metadata\Services\MetadataService::API_VERSION,
                 'required' => true
             ],
+            'authorization' => [
+                'valid' => ['string'],
+                'required' => true
+            ],
             'marketplaceId' => [
                 'valid' => ['string']
             ]
