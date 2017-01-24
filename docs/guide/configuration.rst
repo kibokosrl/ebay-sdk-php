@@ -410,6 +410,7 @@ profile
 ~~~~~~~
 
 :Type: ``string``
+:Services: ``BulkDataExchange``, ``BusinessPoliciesManagement``, ``Feedback``, ``FileTransfer``, ``Finding``, ``HalfFinding``, ``Merchandising``, ``Product``, ``ProductMetadata``, ``RelatedItemsManagement``, ``ResolutionCaseManagement``, ``ReturnManagement``, ``Shopping``, ``Trading``.
 
 Specifies the name of a profile within the ini file that is located in your HOME directory. The SDK will attempt to load the credentials from this profile. Note that the ``credentials`` option and ``EBAY_SDK_PROFILE`` environment variable are both ignored if this option is specified.
 
