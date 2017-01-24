@@ -66,7 +66,9 @@ abstract class BaseRestService
             ],
             'httpOptions' => [
                 'valid'   => ['array'],
-                'default' => []
+                'default' => [
+                    'http_errors' => false
+                ]
             ],
             'requestLanguage' => [
                 'valid' => ['string']
@@ -146,13 +148,6 @@ abstract class BaseRestService
         $debug = $this->getConfig('debug');
         $httpHandler = $this->getConfig('httpHandler');
         $httpOptions = $this->getConfig('httpOptions');
-
-        /**
-         * Unless the client code says otherwise we don't want 4xx and 5xx responses to throw exceptions.
-         */
-        if (!array_key_exists('http_errors', $httpOptions)) {
-            $httpOptions['http_errors'] = false;
-        }
 
         if ($debug !== false) {
             $this->debugRequest($url, $headers, $body);

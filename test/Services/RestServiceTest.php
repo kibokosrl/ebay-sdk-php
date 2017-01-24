@@ -28,7 +28,7 @@ class RestServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('httpOptions', $d);
         $this->assertEquals([
             'valid'   => ['array'],
-            'default' => []
+            'default' => ['http_errors' => false]
         ], $d['httpOptions']);
 
         $this->assertArrayHasKey('requestLanguage', $d);
