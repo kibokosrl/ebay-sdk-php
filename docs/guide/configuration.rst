@@ -80,7 +80,7 @@ authorization
 :Services: ``Account``, ``Analytics``, ``Browse``, ``Fulfillment``, ``Inventory``, ``Marketing``, ``Metadata``, ``Order``, ``Trading``
 :Required: true, except for the Trading service.
 
-All eBay REST services use OAuth 2.0 access tokens for application authentication and user authorization. The token passed via ``authorization`` can be either a User or Application token. You must ensure that the token has the require scope for the operation that you are calling.
+All eBay RESTful services use OAuth 2.0 access tokens for application authentication and user authorization. The token passed via ``authorization`` can be either an User or Application token. You must ensure that the token has the require scope for the operation that you are calling.
 
 .. warning::
 
